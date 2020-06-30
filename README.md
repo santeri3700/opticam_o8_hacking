@@ -1,6 +1,7 @@
 # My journey of hacking and unbricking an Opticam O8 IP camera (Foscam FI9961EP clone)
 
 I received this camera in soft bricked condition and decided to have a look under the hood.
+
 I have had no real experience with hardware hacking or serial connections in the past so this was quite exiting to work on.
 
 What I have here is an Opticam O8 (Model number 5089) which seems to be a clone/cut down version of a Foscam FI9961EP.
@@ -8,6 +9,8 @@ What I have here is an Opticam O8 (Model number 5089) which seems to be a clone/
 ![Opticam O8 without the dome](https://raw.githubusercontent.com/santeri3700/opticam_o8_hacking/master/pics/opticam-o8-without-dome.jpg)
 
 First thing I was looking for was the UART / Serial pins. This way I could check what was possibly wrong with it.
+
+
 You can see the pins next to the piece of metal which is holding the camera sensor module and where the blue, white and black wires are going.
 
 ![Opticam O8 inside](https://raw.githubusercontent.com/santeri3700/opticam_o8_hacking/master/pics/opticam-o8-motherboard-mounted.jpg)
@@ -19,7 +22,10 @@ Now that I had located the pins and soldered some wires to them, it was time to 
 I connected the wires to an USB to TTL module which then connects to my laptop.
 ![USB TO TTL](https://raw.githubusercontent.com/santeri3700/opticam_o8_hacking/master/pics/usb-to-ttl.jpg)
 After experimenting a bit with different serial clients I ended up using MiniCom.
+
+
 Settings: 115200 Bps 8N1 and Hardware Flow Control **disabled**.
+
 
 Powering up the camera and... Success!
 
@@ -135,7 +141,10 @@ After trying some common passwords like "*root*", "*1234*", "*foscam*" and "*adm
 
 I found a Defcon presentation which showed how to root gain access by physical access on a similar device.
 https://www.defcon.org/images/defcon-22/dc-22-presentations/Moore-Wardle/DEFCON-22-Colby-Moore-Patrick-Wardle-Synack-DropCam-Updated.pdf
+
+
 Mirror: http://web.archive.org/web/20180825160226/https://defcon.org/images/defcon-22/dc-22-presentations/Moore-Wardle/DEFCON-22-Colby-Moore-Patrick-Wardle-Synack-DropCam-Updated.pdf
+
 
 From that presentation, I learned I could access the Amboot bootloader by pressing Enter while powering up the camera.
 
